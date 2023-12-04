@@ -1,38 +1,55 @@
-.App {
-  text-align: center;
+.navbar-custom {
+    background: rgba(0, 0, 0, 0.49);
+    box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.12);
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.navbar-custom .logo {
+    display: flex;
+    gap: 1rem;
+    color: #fff;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.navbar-custom .refresh {
+    cursor: pointer;
+    margin: auto;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.navbar-custom .refresh i {
+    align-items: center;
+    background: #fff;
+    color: black;
+    border-radius: 50%;
+    padding: 0.55rem
 }
-
-.App-link {
-  color: #61dafb;
+.input-group {
+    background: rgba(255, 255, 255, 1);
+    box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.12);
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.weather-icon {
+    width: 60px;
+    height: 60px;
+    margin: auto;
+}
+.card-container {
+    text-align: center;
+    width: fit-content;
+}
+.card {
+    color: #fff;
+    background: linear-gradient(180deg, #464646 0%, #1D2540 100%);
+}
+.card-logo {
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    gap: 0;
+    margin: 0;
+    padding: 0;
+}
+.list-group {
+    text-decoration: none;
+}
+.list-group-text {
+    list-style-type: none;
+    color: #fff;
+    background: transparent;
+    text-decoration: none;
+    margin: 0.5rem auto 0;
 }
