@@ -23,9 +23,9 @@
     box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.12);
 }
 .weather-icon {
-    width: 60px;
-    height: 60px;
-    margin: auto;
+    width: 40px;
+    height: 40px;
+    margin: 0.7rem 0.5rem;
 }
 .card-container {
     text-align: center;
@@ -51,5 +51,100 @@
     color: #fff;
     background: transparent;
     text-decoration: none;
-    margin: 0.5rem auto 0;
+    margin: 0.4rem auto 0;
+    font-size: 0.8rem;
+}
+@media (min-width: 576px) {
+    .list-group-text {
+        font-size: 1rem;
+    }
+}
+.date-picker-container {
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(217, 217, 217, 1);
+    margin: auto;
+    width: fit-content;
+    padding: 0.4rem;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+.custom-date-picker {
+    margin-left: 0.3rem;
+    background: transparent;
+    border: none;
+    width: 100px;
+}
+@media (max-width: 576px) {
+    .custom-date-picker {
+        font-size: 0.8rem;
+        width: 80px;
+    }
+}
+.forecast-container {
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    gap: 1rem;
+}
+.search-bar {
+    background: transparent;
+}
+.form-control {
+    font-style: italic;
+}
+.logo p {
+    margin: auto;
+}
+.logo.rotate {
+    transition: transform 0.5s ease-in-out;
+}
+  
+.logo.rotate:hover {
+    transform: rotate(360deg);
+}
+  
+.fa-rotate-right.spin {
+    animation: spin 1s infinite linear;
+}
+  
+@keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+}
+.refresh {
+    margin-left: auto;
+}
+@media (max-width: 576px) {
+    .refresh {
+        padding-left: 0.5rem;
+        display: flex;
+        flex-direction: column;
+        font-size: 0.8rem;
+        border-left: 2px solid grey;
+    }
+}
+.forecast-missing {
+    margin: auto;
+    text-align: center;
+}
+.forecast-missing img {
+    margin: auto;
+    max-width: 15rem;
+    border-radius: 100%;
+}
+@media (max-width: 576px) {
+    .forecast-missing img {
+        width: 100%;
+    }
+}
+.notice, .forecast-missing p {
+    margin: 1rem auto 0;
+    color: grey;
 }

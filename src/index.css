@@ -2,6 +2,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,400&display=swap");
 body {
   margin: 0;
+  overflow: hidden !important;
   line-height: normal;
   background: radial-gradient(50% 50% at 50% 50%, #E0E8F1 0%, #BFCAD6 100%);
 }
