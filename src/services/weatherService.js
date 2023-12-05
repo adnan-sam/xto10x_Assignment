@@ -1,3 +1,4 @@
+// require('dotenv').config();
 // const apiKey = process.env.WEATHER_API_KEY;
 const apiKey = '4a5d01c7b12dd8971128b6ad2a963b86';
 
@@ -13,6 +14,24 @@ export const getWeatherData = async (city) => {
 
     const data = await response.json();
     // console.log(data);
+    return data;
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const getCurrentLocationData = async (lat, lon) => {
+  try {
+    const response = await fetch(
+      `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&lang=PT&units=metric`
+    );
+
+    if (!response.ok) {
+      throw new Error(`Error fetching weather data: ${response.statusText}`);
+    }
+
+    const data = await response.json();
+    console.log(data);
     return data;
   } catch (error) {
     throw error;

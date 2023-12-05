@@ -64,6 +64,7 @@ const WeatherForecast = () => {
           <i className="fa-solid fa-calendar-days"></i>
           <DatePicker
             selected={selectedDate}
+            minDate={new Date()}
             onChange={(date) => setSelectedDate(date)}
             dateFormat="dd MMM yyyy"
             className="custom-date-picker"

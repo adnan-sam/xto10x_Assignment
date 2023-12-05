@@ -148,3 +148,21 @@
     margin: 1rem auto 0;
     color: grey;
 }
+@keyframes blink {
+    0% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.4;
+    }
+    100% {
+      opacity: 1;
+    }
+}
+.liveLocation {
+    position: absolute;
+    bottom: 0;
+    right: 5%;
+    color:rgb(201, 40, 40);
+    animation: blink 1.5s infinite;
+}

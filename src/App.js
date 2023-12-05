@@ -5,11 +5,13 @@ import './App.css';
 import NavBar from './components/NavBar';
 import WeatherStatus from './components/WeatherStatus';
 import WeatherForecast from './components/WeatherForecast';
+import LocationFetcher from './components/LocationFetcher';
 
 function App() {
   
   return (
     <div>
+      <LocationFetcher/>
       <NavBar/>
       <WeatherStatus/>
       <WeatherForecast/>
