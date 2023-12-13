@@ -3,8 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setWeatherData } from '../actions/weatherActions';
 import { getWeatherData } from '../services/weatherService';
 // import { Container, Row, Col } from "react-bootstrap";
-const apiKey = process.env.WEATHER_REACT_API_KEY
-// const apiKey = '4a5d01c7b12dd8971128b6ad2a963b86';
+// const apiKey = process.env.WEATHER_REACT_API_KEY
+const apiKey = '4a5d01c7b12dd8971128b6ad2a963b86';
 
 const WeatherStatus = () => {
     const dispatch = useDispatch();
