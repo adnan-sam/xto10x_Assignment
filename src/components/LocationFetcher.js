@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { setWeatherData, setWeatherForecast } from '../actions/weatherActions';
-import { getCurrentLocationData, getWeatherForecast } from '../services/weatherService';
+import { getWeatherDataLatLon, getWeatherForecast } from '../services/weatherService';
 
 const LocationFetcher = () => {
   const dispatch = useDispatch();
@@ -9,7 +9,7 @@ const LocationFetcher = () => {
 
   const fetchWeatherData = async (latitude, longitude) => {
     try {
-      const data = await getCurrentLocationData(latitude, longitude);
+      const data = await getWeatherDataLatLon(latitude, longitude);
       dispatch(setWeatherData(data));
 
       if (data.coord) {

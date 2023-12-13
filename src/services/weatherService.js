@@ -20,7 +20,7 @@ export const getWeatherData = async (city) => {
   }
 };
 
-export const getCurrentLocationData = async (lat, lon) => {
+export const getWeatherDataLatLon = async (lat, lon) => {
   try {
     const response = await fetch(
       `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&lang=PT&units=metric`
@@ -31,7 +31,7 @@ export const getCurrentLocationData = async (lat, lon) => {
     }
 
     const data = await response.json();
-    console.log(data);
+    // console.log(data);
     return data;
   } catch (error) {
     throw error;
@@ -49,7 +49,7 @@ export const getWeatherForecast = async (lat, lon) => {
     }
 
     const data = await response.json();
-    console.log(data);
+    // console.log(data);
     return data;
   } catch (error) {
     throw error;
