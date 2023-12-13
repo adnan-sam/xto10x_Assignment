@@ -6,6 +6,7 @@
     display: flex;
     gap: 1rem;
     color: #fff;
+    cursor: pointer;
 }
 .navbar-custom .refresh {
     cursor: pointer;
@@ -166,3 +167,39 @@
     color:rgb(201, 40, 40);
     animation: blink 1.5s infinite;
 }
+
+/* Styling for the suggestion drop down */
+.suggestion-container {
+    position: relative;
+  }
+  
+  .dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    width: 100%;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-height: 200px; 
+    overflow-y: auto;
+  }
+  
+  .suggestion-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .suggestion-list li {
+    padding: 8px 12px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .suggestion-list li:hover {
+    background-color: #f0f0f0;
+  }
+  

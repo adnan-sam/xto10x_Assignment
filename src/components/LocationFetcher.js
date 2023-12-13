@@ -42,11 +42,11 @@ const LocationFetcher = () => {
     getLocation();
   }, [dispatch]);
 
-  return (
-    <div>
-      {error && <p className='liveLocation'>Unable to fetch location, Enter city name manually</p>}
-    </div>
-  );
+  // return (
+  //   <div>
+  //     {error && <p className='liveLocation'>Unable to fetch location, Enter city name manually</p>}
+  //   </div>
+  // );
 };
 
 export default LocationFetcher;

@@ -49,7 +49,7 @@ export const getWeatherForecast = async (lat, lon) => {
     }
 
     const data = await response.json();
-    // console.log(data);
+    console.log(data);
     return data;
   } catch (error) {
     throw error;

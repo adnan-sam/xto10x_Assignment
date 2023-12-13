@@ -3,13 +3,18 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setWeatherData } from '../actions/weatherActions';
 import { getWeatherData } from '../services/weatherService';
 // import { Container, Row, Col } from "react-bootstrap";
+const apiKey = process.env.WEATHER_REACT_API_KEY
+// const apiKey = '4a5d01c7b12dd8971128b6ad2a963b86';
 
 const WeatherStatus = () => {
     const dispatch = useDispatch();
     const weatherData = useSelector((state) => state.weatherData);
 
+    console.log("APIKEY--",apiKey)
     const [city, setCity] = useState('');
+    const [suggestions, setSuggestions] = useState([]);
 
+    //For getting the weather data
     const handleSearch = async () => {
       try {
         const data = await getWeatherData(city);
@@ -18,6 +23,23 @@ const WeatherStatus = () => {
         alert('City not found');
         console.error('Error fetching weather data:', error);
       }
+    };
+
+    //For fetching the suggestions
+    const handleInputChange = (e) => {
+      const inputCity = e.target.value;
+      setCity(inputCity);
+  
+      // Fetch city suggestions from the OpenWeatherMap API
+      fetch(`https://api.openweathermap.org/geo/1.0/direct?limit=10&APPID=${apiKey}&q=${inputCity}`)
+        .then((response) => response.json())
+        .then((data) => {
+          setSuggestions(data);
+          // console.log(data);
+        })
+        .catch((error) => {
+          console.error('Error fetching suggestions:', error);
+        });
     };
 
   return (
@@ -32,7 +54,7 @@ const WeatherStatus = () => {
               className="form-control"
               placeholder="Search your city here...."
               value={city}
-              onChange={(e) => setCity(e.target.value)}
+              onChange={handleInputChange}
               onKeyPress={(e) => {
                 if (e.key === 'Enter') {
                   handleSearch();
@@ -44,6 +66,24 @@ const WeatherStatus = () => {
             </span>
           </div>
         </div>
+        {/* Display suggestions in a dropdown */}
+        <div className='suggestion-container'>
+          {suggestions.length > 0 && (
+            <div className="dropdown">
+              <ul className="suggestion-list">
+                {suggestions.map((suggestCity) => (
+                  <li key={suggestCity.name} onClick={() => {
+                    setCity(suggestCity.name)
+                    handleSearch();
+                    setSuggestions([]);
+                  }}>
+                    {suggestCity.name}, {suggestCity.state}, {suggestCity.country}
+                  </li>
+                ))}
+                </ul>
+              </div>
+            )}
+          </div>
       </div>
 
       {/* Location */}
