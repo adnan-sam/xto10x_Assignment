@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setWeatherData, setWeatherForecast } from '../actions/weatherActions';
-import { getWeatherData, getWeatherForecast } from '../services/weatherService';
+import { getWeatherDataLatLon, getWeatherForecast } from '../services/weatherService';
 
 const NavBar = () => {
   const dispatch = useDispatch();
@@ -12,8 +12,8 @@ const NavBar = () => {
   const handleRefresh = async () => {
     try {
       setIsRefreshing(true);
-
-      const data = await getWeatherData(weatherData.name);
+      // console.log(weatherData)
+      const data = await getWeatherDataLatLon(weatherData.coord.lat, weatherData.coord.lon);
       dispatch(setWeatherData(data));
 
       if (data.coord) {
